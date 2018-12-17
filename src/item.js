@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 class  Item extends Component{
     constructor(props){
@@ -6,8 +7,11 @@ class  Item extends Component{
         this.handleClick= this.handleClick.bind(this)
         // this.deleteItem = this.deleteItem.bind(this)
     }
-
+		componentWillReceiveProps(){
+			console.log('componentWillReceiveProps')
+		}
     render(){
+				console.log('child render')
         const {content} = this.props
         return (
             <li onClick={this.handleClick}>
@@ -20,6 +24,15 @@ class  Item extends Component{
         const {deleteItem, index} = this.props
         deleteItem(index)
     }
+}
+
+Item.propTypes = {
+	content: PropTypes.string,
+	index: PropTypes.number,
+	deleteItem: PropTypes.func
+}
+Item.defaultProps = {
+	conent : 'default content'
 }
 
 export default Item

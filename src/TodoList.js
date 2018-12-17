@@ -28,7 +28,8 @@ render(){
 							id="inputArea"
 							className="input"
 							value={this.state.inputValue}
-							onChange={this.handleInputChange} />
+							onChange={this.handleInputChange}
+							ref={(refInput) => {this.refInput = refInput}} />
 						<button onClick = {this.handleSubmit}>submit</button>
 					</div>
 					<ul>
@@ -57,10 +58,10 @@ handleInputChange(e){
 	// 新版推荐用函数, 异步
 	// this.setState({
 	// 	'inputValue': e.target.value
-	// }) 
+	// })  
 	const value = e.target.value
-	this.setState(() => {return {inputValue: value}})
-}
+	this.setState(() => ({inputValue: value}))
+} 
 handleSubmit(){
 	this.setState((prevState) => {return {
 		list: [...prevState.list, prevState.inputValue],
