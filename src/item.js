@@ -7,11 +7,11 @@ class  Item extends Component{
         this.handleClick= this.handleClick.bind(this)
         // this.deleteItem = this.deleteItem.bind(this)
     }
-		componentWillReceiveProps(){
-			console.log('componentWillReceiveProps')
-		}
+    componentWillReceiveProps(){
+        console.log('componentWillReceiveProps')
+    }
     render(){
-				console.log('child render')
+		console.log('child render')
         const {content} = this.props
         return (
             <li onClick={this.handleClick}>
